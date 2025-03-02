@@ -17,7 +17,7 @@
 
 // Set a StallGuard threshold below which we consider the motor stalled.
 // You may need to adjust this value based on your motor, load, and settings.
-#define SG_THRESHOLD 100  
+#define SG_THRESHOLD 400  
 
 // Initialize the TMC2130 driver on hardware SPI
 TMC2130Stepper driver(CS_PIN, R_SENSE);
@@ -45,6 +45,7 @@ void setup() {
   pinMode(CS_PIN, OUTPUT);
   pinMode(DIR_PIN, OUTPUT);
   digitalWrite(EN_PIN, LOW); // Enable driver (logic LOW typically enables)
+  digitalWrite(DIR_PIN, HIGH); //change direction 
 
   SPI.begin();
 
